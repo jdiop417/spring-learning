@@ -1,7 +1,5 @@
 package org.learing.spring.holder;
 
-import com.google.common.hash.HashCode;
-
 import javax.xml.ws.Holder;
 
 public class Test {
