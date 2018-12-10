@@ -1,8 +1,6 @@
-package org.learing.spring.EventMulticaster;
+package org.learing.spring.eventMulticaster;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.awt.*;
 
 public class Test {
     public static void main(String[] args) {

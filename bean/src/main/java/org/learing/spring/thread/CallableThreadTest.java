@@ -1,4 +1,4 @@
-package org.learing.spring.Thread;
+package org.learing.spring.thread;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

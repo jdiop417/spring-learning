@@ -1,4 +1,4 @@
-package org.learing.spring.BeanFactoryPostProcessor;
+package org.learing.spring.beanFactoryPostProcessor;
 
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.xml.XmlBeanFactory;

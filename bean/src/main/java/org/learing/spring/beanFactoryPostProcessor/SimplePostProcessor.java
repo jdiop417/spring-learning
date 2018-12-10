@@ -1,4 +1,4 @@
-package org.learing.spring.BeanFactoryPostProcessor;
+package org.learing.spring.beanFactoryPostProcessor;
 
 
 public class SimplePostProcessor {

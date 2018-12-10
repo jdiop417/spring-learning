@@ -1,4 +1,4 @@
-package org.learing.spring.BeanFactoryPostProcessor;
+package org.learing.spring.beanFactoryPostProcessor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;

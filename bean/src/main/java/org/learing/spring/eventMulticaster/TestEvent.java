@@ -1,4 +1,4 @@
-package org.learing.spring.EventMulticaster;
+package org.learing.spring.eventMulticaster;
 
 import org.springframework.context.ApplicationEvent;
 
