@@ -1,8 +1,5 @@
 package org.learing.spring.tree;
 
-import lombok.Data;
-
-@Data
 public class TreeNode {
     public int val;
 

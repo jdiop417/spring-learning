@@ -2,7 +2,11 @@ package org.learing.spring.tree;
 
 import java.util.Stack;
 
+/**
+ * https://www.jianshu.com/p/456af5480cee
+ */
 public class TraversalDemo {
+
     // 递归先序遍历
     public static void recursionPreorderTraversal(TreeNode root) {
         if (root != null) {
@@ -40,6 +44,66 @@ public class TraversalDemo {
         }
     }
 
+    // 递归中序遍历
+    public static void recursionMiddleorderTraversal(TreeNode root) {
+        if (root != null) {
+            recursionMiddleorderTraversal(root.left);
+            System.out.print(root.val + " ");
+            recursionMiddleorderTraversal(root.right);
+        }
+    }
+
+    // 非递归中序遍历
+    public static void middleorderTraversal(TreeNode root) {
+        Stack<TreeNode> treeNodeStack = new Stack<TreeNode>();
+        TreeNode node = root;
+        while (node != null || !treeNodeStack.isEmpty()) {
+            while (node != null) {
+                treeNodeStack.push(node);
+                node = node.left;
+            }
+            if (!treeNodeStack.isEmpty()) {
+                node = treeNodeStack.pop();
+                System.out.print(node.val + " ");
+                node = node.right;
+            }
+        }
+    }
+
+    // 递归后序遍历
+    public static void recursionPostorderTraversal(TreeNode root) {
+        if (root != null) {
+            recursionPostorderTraversal(root.left);
+            recursionPostorderTraversal(root.right);
+            System.out.print(root.val + " ");
+        }
+    }
+
+    // 非递归后序遍历
+    public static void postorderTraversal(TreeNode root) {
+        Stack<TreeNode> treeNodeStack = new Stack<TreeNode>();
+        TreeNode node = root;
+        TreeNode lastVisit = root;
+        while (node != null || !treeNodeStack.isEmpty()) {
+            while (node != null) {
+                treeNodeStack.push(node);
+                node = node.left;
+            }
+            //查看当前栈顶元素
+            node = treeNodeStack.peek();
+            //如果其右子树也为空，或者右子树已经访问
+            //则可以直接输出当前节点的值
+            if (node.right == null || node.right == lastVisit) {
+                System.out.print(node.val + " ");
+                treeNodeStack.pop();
+                lastVisit = node;
+                node = null;
+            } else {
+                //否则，继续遍历右子树
+                node = node.right;
+            }
+        }
+    }
 
     public static void main(String[] args) {
         TreeNode treeNode1 = new TreeNode(1);
@@ -61,8 +125,28 @@ public class TraversalDemo {
         treeNode6.left = treeNode7;
         treeNode6.right = treeNode8;
 
+        System.out.println("前序递归：");
         recursionPreorderTraversal(treeNode1);
+        System.out.println();
+        System.out.println();
+
+        System.out.println("前序非递归：");
         preorderTraversal(treeNode1);
+        System.out.println();
+        System.out.println();
+
+
+        System.out.println("中序非递归：");
+        middleorderTraversal(treeNode1);
+        System.out.println();
+        System.out.println();
+
+
+        System.out.println("中序非递归：");
+        postorderTraversal(treeNode1);
+        System.out.println();
+        System.out.println();
+
 
     }
 }
