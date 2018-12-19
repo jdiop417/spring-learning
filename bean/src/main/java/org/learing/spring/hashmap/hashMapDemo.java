@@ -2,6 +2,9 @@ package org.learing.spring.hashmap;
 
 import java.util.HashMap;
 
+/**
+ * https://tech.meituan.com/java_hashmap.html
+ */
 public class hashMapDemo {
     public static void main(String[] args) {
         HashMap<Integer, Integer> param = new HashMap<>();
