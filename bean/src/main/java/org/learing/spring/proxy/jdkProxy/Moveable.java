@@ -1,4 +1,4 @@
-package org.learing.spring.proxy;
+package org.learing.spring.proxy.jdkProxy;
 
 public interface Moveable {
     void move();

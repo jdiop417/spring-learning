@@ -1,4 +1,4 @@
-package org.learing.spring.proxy;
+package org.learing.spring.proxy.jdkProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
