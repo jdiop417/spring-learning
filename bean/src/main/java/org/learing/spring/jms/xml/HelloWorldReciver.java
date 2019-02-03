@@ -1,4 +1,4 @@
-package org.learing.spring.jms;
+package org.learing.spring.jms.xml;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;

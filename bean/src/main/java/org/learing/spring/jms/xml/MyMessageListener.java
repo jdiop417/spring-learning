@@ -1,4 +1,4 @@
-package org.learing.spring.jms;
+package org.learing.spring.jms.xml;
 
 import javax.jms.JMSException;
 import javax.jms.Message;

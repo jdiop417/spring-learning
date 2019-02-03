@@ -18,7 +18,7 @@
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destination" ref="destination"/>
         <property name="messageListener">
-            <bean class="org.learing.spring.jms.MyMessageListener"/>
+            <bean class="org.learing.spring.jms.xml.MyMessageListener"/>
         </property>
 
     </bean>
