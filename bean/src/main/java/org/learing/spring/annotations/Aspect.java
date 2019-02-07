@@ -29,21 +29,18 @@ public class Aspect {
     @Around(value = "test()")
     public Object around(ProceedingJoinPoint pjp) {
 
-        System.out.println("befor setter");
         Signature signature = pjp.getSignature();
         try {
             if (signature instanceof MethodSignature) {
                 MethodSignature methodSignature = (MethodSignature) signature;
                 Method method = methodSignature.getMethod();
-                System.out.println(method.getName());
                 if (method.isAnnotationPresent(MyAnnotation.class)) {
                     MyAnnotation myAnnotation = method.getAnnotation(MyAnnotation.class);
                     Object[] args = pjp.getArgs();
                     args[0] = myAnnotation.value();
-                    System.out.println(args[0]);
+                    System.out.println(method.getName() + "的注解值为：" + args[0]);
                 }
             }
-            System.out.println("after setter");
             return pjp.proceed();
         } catch (Throwable throwable) {
             throwable.printStackTrace();

@@ -7,7 +7,7 @@ public class AopTest {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("annotation.xml");
         Person person = (Person) context.getBean("person");
         person.setName("xiaohong");
-        System.out.println(person.getName());
+        System.out.println("setName的参数值为：" + person.getName());
 
 
     }
