@@ -1,4 +1,4 @@
-package org.learing.spring.annotations;
+package org.learing.spring.customannotation;
 
 
 @MyAnnotation(value = "Type annotation")

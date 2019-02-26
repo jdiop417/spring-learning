@@ -1,4 +1,4 @@
-package org.learing.spring.annotations;
+package org.learing.spring.customannotation;
 
 import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
 

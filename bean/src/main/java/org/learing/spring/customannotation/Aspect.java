@@ -1,4 +1,4 @@
-package org.learing.spring.annotations;
+package org.learing.spring.customannotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 
 @org.aspectj.lang.annotation.Aspect
 public class Aspect {
-    @Pointcut(value = "execution(* org.learing.spring.annotations.Person.set*(..))")
+    @Pointcut(value = "execution(* org.learing.spring.customannotation.Person.set*(..))")
     public void test() {
     }
 
