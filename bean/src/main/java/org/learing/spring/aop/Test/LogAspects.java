@@ -2,14 +2,10 @@ package org.learing.spring.aop.Test;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
-@EnableAspectJAutoProxy
-@Component
 public class LogAspects {
     //抽取公共的切入点表达式
     //1、本类引用

@@ -6,7 +6,7 @@ public class Test {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         MathCalculator mathCalculator = context.getBean(MathCalculator.class);
-        mathCalculator.div(1, 0);
+        mathCalculator.div(1, 1);
 
     }
 
