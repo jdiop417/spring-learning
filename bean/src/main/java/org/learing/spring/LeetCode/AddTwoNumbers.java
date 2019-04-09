@@ -14,7 +14,6 @@ public class AddTwoNumbers {
     public static void main(String[] args) {
         ListNode l1 = getNodeListByValue(421L);
         ListNode l2 = getNodeListByValue(431L);
-        ListNode l3 = mergeTwoLists(l1, l2);
 
         System.out.println("pause");
     }
@@ -86,56 +85,4 @@ public class AddTwoNumbers {
 
         return rl;
     }
-
-
-    public static ListNode reverseList(ListNode head) {
-        ListNode rl = null;
-        while (head != null) {
-            ListNode firstNode = new ListNode(head.val);
-            if (rl == null) {
-                rl = firstNode;
-            } else {
-                firstNode.next = rl;
-            }
-            head = head.next;
-            rl = firstNode;
-        }
-
-        return rl;
-    }
-
-
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
-        ListNode l3 = l1;
-        ListNode preNode = null;
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                preNode = l1;
-                l1 = l1.next;
-                continue;
-            }
-
-            ListNode tmp = l2;
-            l2 = l2.next;
-            tmp.next = l1;
-            if (preNode == null) {
-                l3 = tmp;
-            } else {
-                preNode.next = tmp;
-            }
-            preNode = tmp;
-        }
-        if (l1 == null) {
-            preNode.next = l2;
-        }
-        return l3;
-
-    }
-
 }

@@ -33,17 +33,26 @@ public class ListNode {
         return result;
     }
 
-    public static String parseStr(ListNode node) {
+
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder("");
-        if (node == null) {
-            return null;
+        if (this == null) {
+            return sb.toString();
         }
+
+        ListNode node = this;
         while (node != null) {
-            sb.append(node.val);
+            sb.append(node.val + (node.next == null ? "" : "->"));
             node = node.next;
         }
         return sb.toString();
     }
 
+    public static void main(String[] args) {
+        ListNode listNode = parseFromStr("423");
+        System.out.println(listNode.toString());
+
+    }
 
 }
