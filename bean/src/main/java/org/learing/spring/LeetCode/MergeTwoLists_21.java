@@ -1,6 +1,6 @@
 package org.learing.spring.LeetCode;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class MergeTwoLists_21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
