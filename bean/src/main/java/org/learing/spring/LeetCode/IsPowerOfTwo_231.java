@@ -1,7 +1,7 @@
 package org.learing.spring.LeetCode;
 
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class IsPowerOfTwo_231 {
     public boolean isPowerOfTwo(int n) {
