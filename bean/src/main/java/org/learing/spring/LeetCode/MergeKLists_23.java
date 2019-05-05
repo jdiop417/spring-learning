@@ -1,7 +1,7 @@
 package org.learing.spring.LeetCode;
 
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class MergeKLists_23 {
 
