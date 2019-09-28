@@ -1,8 +1,5 @@
 package org.learing.spring.annotations.configure;
 
-import lombok.Data;
-import lombok.ToString;
-
 public class Person {
     private String name;
     private Integer age;

@@ -2,7 +2,6 @@ package org.learing.spring.eventMulticaster.test;
 
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 
 //@Component
 public class MyEventListener implements ApplicationListener<ApplicationEvent> {
