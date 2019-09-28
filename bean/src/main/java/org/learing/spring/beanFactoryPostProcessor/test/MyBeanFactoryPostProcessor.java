@@ -3,7 +3,6 @@ package org.learing.spring.beanFactoryPostProcessor.test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
