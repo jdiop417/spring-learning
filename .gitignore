@@ -8,3 +8,12 @@
 out
 gen
 .Ds_Store
+
+# Maven #
+target/
+
+
+# Eclipse #
+.settings/
+.classpath
+.project
