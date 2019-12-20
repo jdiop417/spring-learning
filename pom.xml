@@ -13,6 +13,7 @@
 
     <modules>
         <module>bean</module>
+        <module>leetcode</module>
     </modules>
 
     <dependencies>

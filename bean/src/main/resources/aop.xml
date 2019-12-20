@@ -6,8 +6,8 @@
 
     <!--aop-->
     <aop:aspectj-autoproxy/>
-    <bean id="testBean" class="org.learing.spring.aop.TestBean"/>
-    <bean id="aspect" class="org.learing.spring.aop.Aspect"/>
+    <bean id="testBean" class="org.learning.spring.aop.TestBean"/>
+    <bean id="aspect" class="org.learning.spring.aop.Aspect"/>
 
 
 
