@@ -17,6 +17,12 @@ public interface EmployeeMapper {
     @Update("update Employee set last_name=#{lastName},email=#{email},gender=#{gender},d_id=#{did}")
     void updateEmp(Employee employee);
 
-    @Select("select * from Employee where id=#{Employee}")
-    Employee getEmpById(Integer Employee);
+    @Select("select * from Employee where id=#{id}")
+    Employee getEmpById(Integer id);
+
+    @Select("select * from Employee where last_name=#{lastname}")
+    Employee getEmpByLastName(String lastname);
+
+    @Select("select * from Employee where email=#{email}")
+    Employee getEmpByEmail(String email);
 }
