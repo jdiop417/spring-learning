@@ -13,3 +13,11 @@ server:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+
+logging:
+  level:
+    org:
+      learning:
+        springbootcache: debug
+
+debug: true
