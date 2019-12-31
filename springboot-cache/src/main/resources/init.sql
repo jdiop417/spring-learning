@@ -1,6 +1,7 @@
 
 drop database if exists spring_cache;
 create database spring_cache;
+use spring_cache;
 
 drop table if exists employee;
 create table employee
