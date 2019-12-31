@@ -35,3 +35,5 @@ VALUES (5, 'lishi1', 'lishi@gmail.com', 0, 1);
 INSERT INTO spring_cache.employee (id, last_name, email, gender, d_id)
 VALUES (6, 'lishi2', 'lishi@gmail.com', 0, 1);
 
+
+INSERT INTO spring_cache.department (id, department_name) VALUES (1, '开发部');
