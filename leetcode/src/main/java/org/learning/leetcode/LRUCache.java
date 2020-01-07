@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 /**
  * 146. LRU缓存机制,参考https://zhuanlan.zhihu.com/p/34133067
+ * 思路：map+双链表
  */
 public class LRUCache {
 
