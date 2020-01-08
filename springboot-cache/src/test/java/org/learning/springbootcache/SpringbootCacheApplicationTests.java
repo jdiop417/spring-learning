@@ -30,9 +30,9 @@ class SpringbootCacheApplicationTests {
 
     @Test
     public void test02() {
-        Employee emp = employeeService.getEmpById(1);
+//        Employee emp = employeeService.getEmpById(1);
 //        redisTemplate.opsForValue().set("emp-01", emp);
-        System.out.println(redisTemplate.opsForValue().get("emp-01"));
+//        System.out.println(redisTemplate.opsForValue().get("emp-01"));
     }
 
     @Test
