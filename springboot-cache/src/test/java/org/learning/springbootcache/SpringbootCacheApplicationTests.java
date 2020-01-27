@@ -1,7 +1,6 @@
 package org.learning.springbootcache;
 
 import org.junit.jupiter.api.Test;
-import org.learning.springbootcache.bean.Employee;
 import org.learning.springbootcache.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
