@@ -5,7 +5,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 
 public class Sender {
-    public static void main(String[] args) throws JMSException,InterruptedException {
+    public static void main(String[] args) throws JMSException, InterruptedException {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
         Connection connection = connectionFactory.createConnection();
         connection.start();

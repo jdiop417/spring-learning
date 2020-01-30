@@ -14,49 +14,6 @@ public class Demo {
     private Condition condition2 = reentrantLock.newCondition();
     private Condition condition3 = reentrantLock.newCondition();
 
-
-    public void print5() throws InterruptedException {
-        reentrantLock.lock();
-        while (num != 1) {
-            condition1.await();
-        }
-        for (int i = 0; i < 5; i++) {
-            System.out.println(Thread.currentThread().getName() + "：" + i);
-        }
-        num = 2;
-        condition2.signal();
-        reentrantLock.unlock();
-    }
-
-
-    public void print10() throws InterruptedException {
-        reentrantLock.lock();
-        while (num != 2) {
-            condition2.await();
-        }
-        for (int i = 0; i < 10; i++) {
-            System.out.println(Thread.currentThread().getName() + "：" + i);
-        }
-        num = 3;
-        condition3.signal();
-        reentrantLock.unlock();
-    }
-
-
-    public void print15() throws InterruptedException {
-        reentrantLock.lock();
-        while (num != 3) {
-            condition3.await();
-        }
-        for (int i = 0; i < 15; i++) {
-            System.out.println(Thread.currentThread().getName() + "：" + i);
-        }
-        num = 1;
-        condition1.signal();
-        reentrantLock.unlock();
-    }
-
-
     public static void main(String[] args) {
         Demo demo = new Demo();
 
@@ -91,6 +48,45 @@ public class Demo {
                 }
             }
         }, "C").start();
+    }
+
+    public void print5() throws InterruptedException {
+        reentrantLock.lock();
+        while (num != 1) {
+            condition1.await();
+        }
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getName() + "：" + i);
+        }
+        num = 2;
+        condition2.signal();
+        reentrantLock.unlock();
+    }
+
+    public void print10() throws InterruptedException {
+        reentrantLock.lock();
+        while (num != 2) {
+            condition2.await();
+        }
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Thread.currentThread().getName() + "：" + i);
+        }
+        num = 3;
+        condition3.signal();
+        reentrantLock.unlock();
+    }
+
+    public void print15() throws InterruptedException {
+        reentrantLock.lock();
+        while (num != 3) {
+            condition3.await();
+        }
+        for (int i = 0; i < 15; i++) {
+            System.out.println(Thread.currentThread().getName() + "：" + i);
+        }
+        num = 1;
+        condition1.signal();
+        reentrantLock.unlock();
     }
 
 }

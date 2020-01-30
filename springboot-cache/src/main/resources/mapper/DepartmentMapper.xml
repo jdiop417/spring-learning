@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.learning.springbootcache.mapper.DepartmentMapper">
+    <sql id="baseSelect">
+        id,
+        department_name
+    </sql>
+
+    <select id="getDeptById" resultType="Department">
+        select
+        <include refid="baseSelect"/>
+        from department
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+        </where>
+    </select>
+</mapper>

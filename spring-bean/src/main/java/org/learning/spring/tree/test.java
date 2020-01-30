@@ -4,21 +4,6 @@ import java.util.Stack;
 
 public class test {
 
-    public static class TreeNode {
-        public int val;
-
-        //左子树
-        public TreeNode left;
-
-        //右子树
-        public TreeNode right;
-
-        //构造方法
-        public TreeNode(int x) {
-            val = x;
-        }
-    }
-
     public static void preorderTraversal(TreeNode rootNode) {
         TreeNode node = rootNode;
         Stack<TreeNode> stack = new Stack<>();
@@ -35,7 +20,6 @@ public class test {
             }
         }
     }
-
 
     public static void postorderTraversal(TreeNode node) {
         Stack<TreeNode> stack = new Stack<>();
@@ -94,6 +78,21 @@ public class test {
         postorderTraversal(treeNode1);
         System.out.println();
         System.out.println();
+    }
+
+    public static class TreeNode {
+        public int val;
+
+        //左子树
+        public TreeNode left;
+
+        //右子树
+        public TreeNode right;
+
+        //构造方法
+        public TreeNode(int x) {
+            val = x;
+        }
     }
 
 

@@ -15,7 +15,7 @@ public class MergeKLists_23 {
             return result;
         }
         for (int i = 1; i < lists.length; i++) {
-            result= mergeTwoLists(result, lists[i]);
+            result = mergeTwoLists(result, lists[i]);
         }
         return result;
 

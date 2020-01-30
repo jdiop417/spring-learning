@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 class SpringBean implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware, BeanClassLoaderAware {
 
+    @Autowired
+    StudentServiceImpl studentService;
+
     public SpringBean() {
         System.out.println("SpringBean构造方法:" + studentService);
         System.out.println("SpringBean构造方法");
     }
-
-    @Autowired
-    StudentServiceImpl studentService;
 
     @Override
     public void afterPropertiesSet() throws Exception {

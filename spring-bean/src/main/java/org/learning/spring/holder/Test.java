@@ -6,7 +6,7 @@ public class Test {
     public static void main(String[] args) {
         Integer a = new Integer(12233456);
         chang(a);
-        System.out.println("fianl:" + a+","+a.hashCode());
+        System.out.println("fianl:" + a + "," + a.hashCode());
         System.out.println("--------------------");
 
 
@@ -18,8 +18,8 @@ public class Test {
 
     private static void chang(Integer aa) {
         System.out.println("before:" + aa);
-        aa =new Integer(12345678) ;
-        System.out.println("after:" + aa+","+ aa.hashCode());
+        aa = new Integer(12345678);
+        System.out.println("after:" + aa + "," + aa.hashCode());
     }
 
     private static void chang2(Holder<Integer> bb) {

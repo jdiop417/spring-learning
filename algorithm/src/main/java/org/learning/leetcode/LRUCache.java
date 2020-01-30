@@ -32,6 +32,38 @@ public class LRUCache {
         tail.post = null;
     }
 
+    public static void main(String[] args) {
+        LRUCache cache = new LRUCache(2);/* 缓存容量 */
+        System.out.println(cache);
+
+        cache.put(1, 1);
+        System.out.println(cache);
+
+
+        cache.put(2, 2);
+        System.out.println(cache);
+
+        Assert.assertEquals(1, cache.get(1));        // 返回  1
+        System.out.println(cache);
+
+        cache.put(3, 3);    // 该操作会使得密钥 2 作废
+        System.out.println(cache);
+
+        Assert.assertEquals(-1, cache.get(2));       // 返回 -1 (未找到)
+        System.out.println(cache);
+
+        cache.put(4, 4);    // 该操作会使得密钥 1 作废
+        System.out.println(cache);
+
+        Assert.assertEquals(-1, cache.get(1));       // 返回 -1 (未找到)
+        System.out.println(cache);
+
+        Assert.assertEquals(3, cache.get(3));       // 返回  3
+        System.out.println(cache);
+
+        Assert.assertEquals(4, cache.get(4));       // 返回  4
+        System.out.println(cache);
+    }
 
     public int get(int key) {
         DlinkNode dlinkNode = cache.get(key);
@@ -66,6 +98,33 @@ public class LRUCache {
         return head.toString();
     }
 
+    public void moveNode(DlinkNode node) {
+        DlinkNode pre = node.pre;
+        DlinkNode post = node.post;
+
+        pre.post = post;
+        post.pre = pre;
+    }
+
+    public void addNode(DlinkNode node) {
+        node.pre = head;
+        node.post = head.post;
+
+        head.post.pre = node;
+        head.post = node;
+    }
+
+
+    public void moveToHead(DlinkNode node) {
+        moveNode(node);
+        addNode(node);
+    }
+
+    public DlinkNode popTail() {
+        DlinkNode retVal = tail.pre;
+        moveNode(retVal);
+        return retVal;
+    }
 
     private class DlinkNode {
         int key;
@@ -100,68 +159,5 @@ public class LRUCache {
             return values.stream().map(t -> String.valueOf(t)).collect(Collectors.joining("->"));
         }
 
-    }
-
-
-    public void moveNode(DlinkNode node) {
-        DlinkNode pre = node.pre;
-        DlinkNode post = node.post;
-
-        pre.post = post;
-        post.pre = pre;
-    }
-
-    public void addNode(DlinkNode node) {
-        node.pre = head;
-        node.post = head.post;
-
-        head.post.pre = node;
-        head.post = node;
-    }
-
-
-    public void moveToHead(DlinkNode node) {
-        moveNode(node);
-        addNode(node);
-    }
-
-    public DlinkNode popTail() {
-        DlinkNode retVal = tail.pre;
-        moveNode(retVal);
-        return retVal;
-    }
-
-
-    public static void main(String[] args) {
-        LRUCache cache = new LRUCache(2);/* 缓存容量 */
-        System.out.println(cache);
-
-        cache.put(1, 1);
-        System.out.println(cache);
-
-
-        cache.put(2, 2);
-        System.out.println(cache);
-
-        Assert.assertEquals(1, cache.get(1));        // 返回  1
-        System.out.println(cache);
-
-        cache.put(3, 3);    // 该操作会使得密钥 2 作废
-        System.out.println(cache);
-
-        Assert.assertEquals(-1, cache.get(2));       // 返回 -1 (未找到)
-        System.out.println(cache);
-
-        cache.put(4, 4);    // 该操作会使得密钥 1 作废
-        System.out.println(cache);
-
-        Assert.assertEquals(-1, cache.get(1));       // 返回 -1 (未找到)
-        System.out.println(cache);
-
-        Assert.assertEquals(3, cache.get(3));       // 返回  3
-        System.out.println(cache);
-
-        Assert.assertEquals(4, cache.get(4));       // 返回  4
-        System.out.println(cache);
     }
 }
