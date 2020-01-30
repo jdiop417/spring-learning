@@ -1,5 +1,8 @@
 package org.learning.springbootcache.config;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
@@ -16,11 +19,9 @@ import java.time.Duration;
 @Configuration
 public class MyRedisConfig {
     @Bean
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory)
-            throws UnknownHostException {
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
-        Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
-        template.setDefaultSerializer(serializer);
+        template.setDefaultSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
         template.setConnectionFactory(redisConnectionFactory);
         return template;
     }
@@ -28,25 +29,21 @@ public class MyRedisConfig {
 
     @Bean
     public RedisCacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
-        //redis加锁的写入器
-        RedisCacheWriter writer = RedisCacheWriter.lockingRedisCacheWriter(redisConnectionFactory);
+        Jackson2JsonRedisSerializer<Object> redisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
 
-        //启动Redis缓存的默认设置
-        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
 
-        //设置JDK序列化器
-        config = config.serializeValuesWith(
-                RedisSerializationContext.SerializationPair.fromSerializer(new Jackson2JsonRedisSerializer<>(Object.class)));
+        redisSerializer.setObjectMapper(objectMapper);
 
-        //禁用前缀
-        //  config = config.disableKeyPrefix();
+        RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer));
 
-        //设置10 min 超时
-        config = config.entryTtl(Duration.ofMinutes(10));
-
-        RedisCacheManager redisCacheManager = new RedisCacheManager(writer, config);
+        RedisCacheManager redisCacheManager = RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(cacheConfiguration).build();
 
         return redisCacheManager;
+
     }
 
 }
