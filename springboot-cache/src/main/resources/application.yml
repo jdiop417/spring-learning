@@ -7,13 +7,14 @@ spring:
     password: Mysql@426853
   redis:
     host: 127.0.0.1
+  jta:
+    atomikos:
+      properties:
+        recovery:
+          forget-orphaned-log-entries-delay:
 
 server:
   port: 8080
-
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
 
 logging:
   level:
@@ -21,4 +22,8 @@ logging:
       learning:
         springbootcache: debug
 
-debug: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: org.learning.springbootcache.bean
+  mapper-locations: classpath:mapper/*.xml

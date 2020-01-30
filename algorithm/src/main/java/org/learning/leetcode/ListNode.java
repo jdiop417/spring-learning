@@ -33,6 +33,11 @@ public class ListNode {
         return result;
     }
 
+    public static void main(String[] args) {
+        ListNode listNode = parseFromStr("423");
+        System.out.println(listNode.toString());
+
+    }
 
     @Override
     public String toString() {
@@ -47,12 +52,6 @@ public class ListNode {
             node = node.next;
         }
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        ListNode listNode = parseFromStr("423");
-        System.out.println(listNode.toString());
-
     }
 
 }

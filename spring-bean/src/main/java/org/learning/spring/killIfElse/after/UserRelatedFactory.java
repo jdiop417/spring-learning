@@ -8,10 +8,9 @@ import java.util.Map;
 
 @Component
 public class UserRelatedFactory {
+    private static Map<UserRelatedType, UserRelated> userRelatedMap = Maps.newConcurrentMap();
     @Autowired
     private SpringContextUtil springContextUtil;
-
-    private static Map<UserRelatedType, UserRelated> userRelatedMap = Maps.newConcurrentMap();
 
     //工厂将 Spring 装配的相关的 Bean 用 Map 保存起来
     public UserRelatedFactory() {

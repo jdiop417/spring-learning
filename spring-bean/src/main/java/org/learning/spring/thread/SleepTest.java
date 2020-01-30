@@ -6,6 +6,16 @@ package org.learning.spring.thread;
 
 public class SleepTest implements Runnable {
 
+    public static void main(String[] args) {
+        Runnable r = new SleepTest();
+        Thread t1 = new Thread(r, "t1_name");
+        Thread t2 = new Thread(r, "t2_name");
+        t1.setPriority(Thread.MAX_PRIORITY);
+        t2.setPriority(Thread.MIN_PRIORITY);
+        t1.start();
+        t2.start();
+    }
+
     @Override
     public void run() {
         for (int k = 0; k < 5; k++) {
@@ -17,15 +27,5 @@ public class SleepTest implements Runnable {
             }
             System.out.println(Thread.currentThread().getName() + " : " + k);
         }
-    }
-
-    public static void main(String[] args) {
-        Runnable r = new SleepTest();
-        Thread t1 = new Thread(r, "t1_name");
-        Thread t2 = new Thread(r, "t2_name");
-        t1.setPriority(Thread.MAX_PRIORITY);
-        t2.setPriority(Thread.MIN_PRIORITY);
-        t1.start();
-        t2.start();
     }
 }

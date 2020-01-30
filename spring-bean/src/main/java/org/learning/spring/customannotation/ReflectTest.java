@@ -14,13 +14,12 @@ public class ReflectTest {
         }
 
 
-
         Field name = c.getDeclaredField("name");
         boolean filedAnnotationExit = name.isAnnotationPresent(MyAnnotation.class);
         if (filedAnnotationExit) {
             MyAnnotation myAnnotation = name.getAnnotation(MyAnnotation.class);
             name.setAccessible(Boolean.TRUE);
-            name.set(person,myAnnotation.value());
+            name.set(person, myAnnotation.value());
             System.out.println(person.getName());
         }
     }

@@ -1,14 +1,18 @@
 package org.learning.springbootcache.bean;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Alias("Employee")
 public class Employee implements Serializable {
 
     private Integer id;

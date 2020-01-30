@@ -1,4 +1,3 @@
-
 drop database if exists spring_cache;
 create database spring_cache;
 use spring_cache;
@@ -37,4 +36,5 @@ INSERT INTO spring_cache.employee (id, last_name, email, gender, d_id)
 VALUES (6, 'lishi2', 'lishi@gmail.com', 0, 1);
 
 
-INSERT INTO spring_cache.department (id, department_name) VALUES (1, '开发部');
+INSERT INTO spring_cache.department (id, department_name)
+VALUES (1, '开发部');

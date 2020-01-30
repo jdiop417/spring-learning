@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if(beanName.equals("springBean")) {
+        if (beanName.equals("springBean")) {
             System.out.println("postProcessBeforeInitialization");
         }
         return bean;
@@ -16,7 +16,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if(beanName.equals("springBean")) {
+        if (beanName.equals("springBean")) {
             System.out.println("postProcessAfterInitialization");
         }
         return bean;

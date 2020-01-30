@@ -1,16 +1,6 @@
 package org.learning.leetcode;
 
 public class AddTwoNumbers {
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
-
     public static void main(String[] args) {
         ListNode l1 = getNodeListByValue(421L);
         ListNode l2 = getNodeListByValue(431L);
@@ -48,7 +38,6 @@ public class AddTwoNumbers {
         return l3;
     }
 
-
     public static ListNode getNodeListByValue(Long value) {
         if (value == 0) {
             return new ListNode(0);
@@ -84,5 +73,14 @@ public class AddTwoNumbers {
         }
 
         return rl;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

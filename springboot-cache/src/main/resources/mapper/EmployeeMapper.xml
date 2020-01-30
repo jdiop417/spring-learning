@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.learning.springbootcache.mapper.EmployeeMapper">
+
+    <sql id="baseSql">
+        id,
+        last_name,
+        email,
+        gender,
+        d_id
+    </sql>
+
+    <insert id="insertEmployee">
+    insert into employee(last_name,email,gender,d_id) values(#{lastName},#{email},#{gender},#{did})
+    </insert>
+
+    <delete id="deletEmpById">
+        delete from Employee
+        <where>
+            id=#{id}
+        </where>
+    </delete>
+
+    <update id="updateEmp">
+        update Employee set last_name=#{lastName},email=#{email},gender=#{gender},d_id=#{did}
+        <where>
+            id=#{id}
+        </where>
+    </update>
+
+    <select id="getEmpById" resultType="Employee">
+        select
+        <include refid="baseSql"/>
+        from Employee where id=#{id}
+    </select>
+
+    <select id="getEmpByLastName" resultType="Employee">
+        select
+        <include refid="baseSql"/>
+        from Employee where last_name=#{lastname}
+    </select>
+
+    <select id="getEmpByEmail" resultType="Employee">
+        select
+        <include refid="baseSql"/>
+        from Employee where email=#{email}
+    </select>
+</mapper>

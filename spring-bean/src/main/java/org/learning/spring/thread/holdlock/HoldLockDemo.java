@@ -10,6 +10,12 @@ public class HoldLockDemo implements Runnable {
         this.lockB = lockB;
     }
 
+    public static void main(String[] args) {
+        String lockA = "a";
+        String lockB = "b";
+        new Thread(new HoldLockDemo(lockA, lockB)).start();
+        new Thread(new HoldLockDemo(lockB, lockA)).start();
+    }
 
     @Override
     public void run() {
@@ -19,12 +25,5 @@ public class HoldLockDemo implements Runnable {
                 System.out.println("已获取锁" + lockB + "，尝试获取锁" + lockA);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        String lockA = "a";
-        String lockB = "b";
-        new Thread(new HoldLockDemo(lockA, lockB)).start();
-        new Thread(new HoldLockDemo(lockB, lockA)).start();
     }
 }

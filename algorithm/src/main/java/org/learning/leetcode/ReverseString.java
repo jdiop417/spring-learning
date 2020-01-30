@@ -2,7 +2,7 @@ package org.learning.leetcode;
 
 public class ReverseString {
     public static void main(String[] args) {
-        char[] str = new char[]{'h', 'e', 'l', 'l', 'l', 'o' };
+        char[] str = new char[]{'h', 'e', 'l', 'l', 'l', 'o'};
         reverseString(str);
         System.out.println("");
 
