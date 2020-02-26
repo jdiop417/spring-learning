@@ -20,7 +20,7 @@
 
     <modules>
         <module>algorithm</module>
-        <module>spring-bean</module>
+        <module>foundation</module>
         <module>springboot-cache</module>
     </modules>
 
