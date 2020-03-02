@@ -1,7 +1,7 @@
 package org.learning.springbootcache.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.learning.springbootcache.bean.Employee;
+import org.learning.springbootcache.entity.Employee;
 
 import javax.validation.constraints.NotNull;
 

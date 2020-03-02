@@ -1,4 +1,4 @@
-package org.learning.springbootcache.bean;
+package org.learning.springbootcache.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

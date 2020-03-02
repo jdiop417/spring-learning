@@ -1,6 +1,6 @@
 package org.learning.springbootcache.controller;
 
-import org.learning.springbootcache.bean.Employee;
+import org.learning.springbootcache.entity.Employee;
 import org.learning.springbootcache.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

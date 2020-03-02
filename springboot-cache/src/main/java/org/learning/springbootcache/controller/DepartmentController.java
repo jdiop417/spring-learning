@@ -1,6 +1,6 @@
 package org.learning.springbootcache.controller;
 
-import org.learning.springbootcache.bean.Department;
+import org.learning.springbootcache.entity.Department;
 import org.learning.springbootcache.service.DepartmentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

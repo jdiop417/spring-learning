@@ -1,7 +1,7 @@
 package org.learning.springbootcache.mapper;
 
 import org.junit.jupiter.api.Test;
-import org.learning.springbootcache.bean.Employee;
+import org.learning.springbootcache.entity.Employee;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
