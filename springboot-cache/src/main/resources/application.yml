@@ -25,5 +25,5 @@ logging:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-  type-aliases-package: org.learning.springbootcache.bean
+  type-aliases-package: org.learning.springbootcache.entity
   mapper-locations: classpath:mapper/*.xml
