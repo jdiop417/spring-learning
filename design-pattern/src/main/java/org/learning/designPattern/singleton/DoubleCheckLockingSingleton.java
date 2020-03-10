@@ -1,4 +1,4 @@
-package org.learning.designpattern.singleton;
+package org.learning.designPattern.singleton;
 
 public class DoubleCheckLockingSingleton {
     private static volatile DoubleCheckLockingSingleton INSTANCE = null;

@@ -1,4 +1,4 @@
-package org.learning.foundation.observer;
+package org.learning.designPattern.observer;
 
 public class Test {
     public static void main(String[] args) {
