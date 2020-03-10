@@ -1,4 +1,4 @@
-package org.learning.foundation.singleton;
+package org.learning.designpattern.singleton;
 
 public final class EagerSingleton {
     private static final EagerSingleton instance = new EagerSingleton();

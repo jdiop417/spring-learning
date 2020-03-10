@@ -1,4 +1,4 @@
-package org.learning.foundation.singleton;
+package org.learning.designpattern.singleton;
 
 public final class LazyThreadNotSafeSingleton {
     private static LazyThreadNotSafeSingleton INSTANCE = null;
