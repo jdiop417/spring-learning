@@ -2,6 +2,7 @@ package org.learning.designPattern.state;
 
 /**
  * 在"投了25分钱"的状态下"转动曲柄"，会售出糖果；而在"没有25分钱"的状态下"转动曲柄"会提示请先投币。
+ * 参考https://www.runoob.com/w3cnote/state-vs-strategy.html
  */
 public class NoPatternGumballMachine {
     /*
