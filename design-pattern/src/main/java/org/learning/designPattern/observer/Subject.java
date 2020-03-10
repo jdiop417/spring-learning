@@ -1,4 +1,4 @@
-package org.learning.foundation.observer;
+package org.learning.designPattern.observer;
 
 import java.util.Observable;
 

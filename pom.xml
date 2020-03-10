@@ -21,8 +21,8 @@
     <modules>
         <module>algorithm</module>
         <module>foundation</module>
-        <module>springboot-cache</module>
         <module>design-pattern</module>
+        <module>springboot-cache</module>
     </modules>
 
     <properties>
