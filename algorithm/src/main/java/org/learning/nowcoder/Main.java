@@ -1,58 +1,68 @@
 package org.learning.nowcoder;
 
-
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
-/**
- * 题目：牛客网-华为面试题-DNA序列
- * <p>
- * 本题疑惑：
- * 要求：给定一个很长的DNA序列，以及要求的最小子序列长度，研究人员经常会需要在其中找出GC-Ratio最高的子序列。那么子序列>=最小子序列长度
- * 测试案例：子序列固定
- * <p>
- * 牛客网这个坑货，在线自测的坑：
- * 1.类名必需为Main
- * 2.有main方法
- * 3.输入输出
- */
 public class Main {
+    public static void main(String[] args) throws IOException {
+        List<String> params = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        //多个测试案例
-        while (input.hasNext()) {
-            //输入数据
-            String s = input.next();
-            int len = input.nextInt();
-
-            //输出结果
-            System.out.println(gcRatio(s, len));
+        //oj读取多行
+        //以空白行结束输入
+        while (true) {
+            String param = scanner.nextLine();
+            if (param == null || param.trim().length() == 0) {
+                break;
+            }
+            params.add(param);
         }
+        System.out.println(test(params));
+
+//        //知道行数
+//        int i = 0;
+//        while (i++ < 5) {
+//            String param = scanner.nextLine();
+//            params.add(param);
+//        }
+//        System.out.println(test(params));
+
+//        while (scanner.hasNextLine()) {
+//            params.add(scanner.nextLine());
+//        }
+//        System.out.println(test(params));
+
     }
 
-    public static String gcRatio(String s, int fixlen) {
+    public static int test(List<String> strs) {
+        if (strs == null || strs.size() == 0) {
+            return 0;
+        }
 
-        int maxCount = 0;
-        int beginIndex = 0;
-        for (int i = 0; i < s.length() - fixlen; i++) {
+        Map<String, List<String>> collect = strs.stream()
+                .map(s -> s.trim())
+                .filter(s -> s != null && s.length() > 0)
+                .collect(Collectors.groupingBy(s -> s.substring(0, 10)));
 
-            int tmpCount = 0;
-            String substr = s.substring(i, i + fixlen);
-            for (int j = 0; j < substr.length(); j++) {
-                char c = substr.charAt(j);
-                if (c == 'C' || c == 'G') {
-                    tmpCount++;
+        int count = 0;
+        for (Map.Entry<String, List<String>> date : collect.entrySet()) {
+
+            List<String> times = date.getValue();
+            times.sort((o1, o2) -> o1.compareTo(o2));
+            String mintime = times.get(0);
+            for (String time : times) {
+                if (time == mintime) {
+                    count++;
+                } else {
+                    break;
                 }
             }
 
-            if (tmpCount > maxCount) {
-                maxCount = tmpCount;
-                beginIndex = i;
-            }
-
         }
-        return s.substring(beginIndex, beginIndex + fixlen);
+        return count;
     }
 }

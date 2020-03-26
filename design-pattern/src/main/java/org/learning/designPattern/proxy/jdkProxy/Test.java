@@ -1,4 +1,4 @@
-package org.learning.foundation.proxy.jdkProxy;
+package org.learning.designPattern.proxy.jdkProxy;
 
 import java.lang.reflect.Proxy;
 

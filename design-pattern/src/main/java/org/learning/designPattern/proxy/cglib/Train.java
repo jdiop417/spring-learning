@@ -1,4 +1,4 @@
-package org.learning.foundation.proxy.cglib;
+package org.learning.designPattern.proxy.cglib;
 
 public class Train {
     public void move() {
