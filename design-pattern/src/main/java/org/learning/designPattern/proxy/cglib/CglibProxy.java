@@ -1,4 +1,4 @@
-package org.learning.foundation.proxy.cglib;
+package org.learning.designPattern.proxy.cglib;
 
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
