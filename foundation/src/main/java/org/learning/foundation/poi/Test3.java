@@ -10,7 +10,6 @@ import org.apache.poi.ss.usermodel.*;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.List;
@@ -75,7 +74,7 @@ public class Test3 {
             setCellValue(row, 3, mzc.getRt());
             setCellValue(row, 4, mzc.getM1());
         }
-        workbook.write(new FileOutputStream(new File("/Users/yangchen/Desktop/excel/t.xlsx")));
+        workbook.write(new FileOutputStream("/Users/yangchen/Desktop/excel/t.xlsx"));
     }
 
     private static List<Mzc> getTargetData(Workbook targetWb) {
