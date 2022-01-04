@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -46,20 +48,21 @@ class SpringbootCacheApplicationTests {
     }
 
     @Test
-    void test03() {
+    @Transactional
+    public void test03() {
 
-        for (int i = 7; i <10 ; i++) {
-            Employee employee = new Employee(i,"user"+i,"user"+i+"@test.com",i%2,1);
+        for (int i = 7; i < 10; i++) {
+            Employee employee = new Employee(i, "user" + i, "user" + i + "@test.com", i % 2, 1);
             employeeMapper.insertEmployee(employee);
         }
         System.out.println("开始批量操作");
         List<BatchResult> batchResults = employeeMapper.flushStatements();
-        batchResults.forEach(rs->{
+        batchResults.forEach(rs -> {
             System.out.println(rs.getSql());
-            System.out.println(rs.getUpdateCounts());
+            System.out.println(rs.getParameterObjects());
+            System.out.println(Arrays.toString(rs.getUpdateCounts()));
         });
         System.out.println("结束批量操作");
-
 
 
         System.out.println();
