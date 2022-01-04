@@ -2,7 +2,7 @@ package org.learning.springbootcache.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.learning.springbootcache.entity.Department;
-import org.learning.springbootcache.mapper.DepartmentMapper;
+import org.learning.springbootcache.mapper.defaul.DepartmentMapper;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

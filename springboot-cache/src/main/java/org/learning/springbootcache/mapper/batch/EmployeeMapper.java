@@ -1,9 +1,12 @@
-package org.learning.springbootcache.mapper;
+package org.learning.springbootcache.mapper.batch;
 
+import org.apache.ibatis.annotations.Flush;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.executor.BatchResult;
 import org.learning.springbootcache.entity.Employee;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 public interface EmployeeMapper {
     void insertEmployee(Employee employee);
@@ -18,4 +21,7 @@ public interface EmployeeMapper {
     Employee getEmpByLastName(String lastname);
 
     Employee getEmpByEmail(String email);
+
+    @Flush
+    List<BatchResult> flushStatements();
 }
