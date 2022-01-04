@@ -1,7 +1,7 @@
 package org.learning.springbootcache.service;
 
 import org.learning.springbootcache.entity.Employee;
-import org.learning.springbootcache.mapper.EmployeeMapper;
+import org.learning.springbootcache.mapper.batch.EmployeeMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.*;

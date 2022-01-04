@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 @Configuration
-public class myKeyGenerator {
+public class MyKeyGenerator {
 
     @Bean("mykeyGenerator")
     public KeyGenerator keyGenerator() {

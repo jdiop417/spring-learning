@@ -1,4 +1,4 @@
-package org.learning.springbootcache.mapper;
+package org.learning.springbootcache.mapper.defaul;
 
 
 import org.learning.springbootcache.entity.Department;
