@@ -11,6 +11,9 @@ import java.util.List;
 public interface EmployeeMapper {
     void insertEmployee(Employee employee);
 
+    @Flush
+    List<BatchResult> flushStatements();
+
     void deletEmpById(@NotNull @Param("id") Integer id);
 
 
@@ -22,6 +25,5 @@ public interface EmployeeMapper {
 
     Employee getEmpByEmail(String email);
 
-    @Flush
-    List<BatchResult> flushStatements();
+
 }

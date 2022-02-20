@@ -1,11 +1,12 @@
 package org.learning.springbootcache;
 
 import org.apache.ibatis.executor.BatchResult;
-import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
 import org.learning.springbootcache.entity.Employee;
 import org.learning.springbootcache.mapper.batch.EmployeeMapper;
 import org.learning.springbootcache.service.EmployeeService;
+import org.mybatis.logging.Logger;
+import org.mybatis.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -18,6 +19,9 @@ import java.util.List;
 
 @SpringBootTest
 class SpringbootCacheApplicationTests {
+
+    Logger LOG = LoggerFactory.getLogger(SpringbootCacheApplicationTests.class);
+
     @Autowired
     private RedisTemplate redisTemplate;
 
@@ -50,22 +54,18 @@ class SpringbootCacheApplicationTests {
     @Test
     @Transactional
     public void test03() {
-
         for (int i = 7; i < 10; i++) {
             Employee employee = new Employee(i, "user" + i, "user" + i + "@test.com", i % 2, 1);
             employeeMapper.insertEmployee(employee);
         }
-        System.out.println("开始批量操作");
+        LOG.debug(() -> "--------------开始批量操作--------------");
         List<BatchResult> batchResults = employeeMapper.flushStatements();
         batchResults.forEach(rs -> {
             System.out.println(rs.getSql());
             System.out.println(rs.getParameterObjects());
             System.out.println(Arrays.toString(rs.getUpdateCounts()));
         });
-        System.out.println("结束批量操作");
-
-
-        System.out.println();
+        LOG.debug(() -> "--------------结束批量操作--------------");
     }
 
 }
