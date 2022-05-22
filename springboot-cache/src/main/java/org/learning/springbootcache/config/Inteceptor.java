@@ -36,7 +36,7 @@ public class Inteceptor implements Interceptor {
     private void beforeIntercept(Invocation invocation) throws JSQLParserException {
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
 
-        BoundSql boundSql =   statementHandler.getBoundSql();
+        BoundSql boundSql = statementHandler.getBoundSql();
         String sql = boundSql.getSql();
         Statement statement = CCJSqlParserUtil.parse(sql);
         if (!(statement instanceof Insert)) {
@@ -56,17 +56,16 @@ public class Inteceptor implements Interceptor {
         }
 
         List<Column> columns = insert.getColumns();
-        if (CollectionUtils.isEmpty(columns) ) {
+        if (CollectionUtils.isEmpty(columns)) {
             return;
         }
-        Column memo = columns.stream().filter(c -> StringUtils.equalsIgnoreCase(c.getColumnName(), "memo")).findFirst().orElse(null);
-        if (memo != null) {
+        if (columns.stream().anyMatch(c -> StringUtils.equalsIgnoreCase(c.getColumnName(), "memo"))) {
             return;
         }
 
 
         insert.addColumns(new Column("memo"));
-        ((ExpressionList)insert.getItemsList()).getExpressions().add(new StringValue("hhhhhhh"));
+        ((ExpressionList) insert.getItemsList()).getExpressions().add(new StringValue("hhhhhhh"));
 
         setFieldValue(boundSql, "sql", insert.toString());
     }
@@ -91,11 +90,13 @@ public class Inteceptor implements Interceptor {
         return field;
     }
 
-    public static void setFieldValue(Object obj , String fieldName , Object value ){
-        if(null == obj){return;}
+    public static void setFieldValue(Object obj, String fieldName, Object value) {
+        if (null == obj) {
+            return;
+        }
         Field targetField = getTargetField(obj.getClass(), fieldName);
         try {
-            FieldUtils.writeField(targetField, obj, value) ;
+            FieldUtils.writeField(targetField, obj, value);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }

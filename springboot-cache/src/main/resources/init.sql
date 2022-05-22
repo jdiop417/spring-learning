@@ -20,7 +20,8 @@ create table department
 (
     id              int auto_increment
         primary key,
-    department_name varchar(100) not null
+    department_name varchar(100) not null,
+    memo            varchar(256) null
 );
 
 
