@@ -2,8 +2,10 @@ package org.learning.springbootcache;
 
 import org.apache.ibatis.executor.BatchResult;
 import org.junit.jupiter.api.Test;
+import org.learning.springbootcache.entity.Department;
 import org.learning.springbootcache.entity.Employee;
 import org.learning.springbootcache.mapper.batch.EmployeeMapper;
+import org.learning.springbootcache.mapper.defaul.DepartmentMapper;
 import org.learning.springbootcache.service.EmployeeService;
 import org.mybatis.logging.Logger;
 import org.mybatis.logging.LoggerFactory;
@@ -34,6 +36,8 @@ class SpringbootCacheApplicationTests {
     @Autowired
     private EmployeeService employeeService;
 
+    @Resource
+    private DepartmentMapper departmentMapper;
 
     @Test
     public void test01() {
@@ -68,4 +72,10 @@ class SpringbootCacheApplicationTests {
         LOG.debug(() -> "--------------结束批量操作--------------");
     }
 
+    @Test
+    public void test04() {
+        Department d1 = new Department("3", "d1");
+        departmentMapper.add(d1);
+        System.out.println();
+    }
 }

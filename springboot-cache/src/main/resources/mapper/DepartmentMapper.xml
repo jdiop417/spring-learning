@@ -5,6 +5,9 @@
         id,
         department_name
     </sql>
+    <insert id="add">
+        insert into department(department_name) values(#{departmentName})
+    </insert>
 
     <select id="getDeptById" resultType="Department">
         select
