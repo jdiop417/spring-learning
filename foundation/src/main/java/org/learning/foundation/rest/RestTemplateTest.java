@@ -92,13 +92,13 @@ public class RestTemplateTest {
                     }
                 }))
                 .collect(Collectors.toList());
-        File destinationFile = new File("/Users/yangchen/Downloads/sequencesTempResult.tsv");
+
 
         int i = 0;
         for (Future<byte[]> task : tasks) {
             byte[] bytes = ecs.take().get();
             if (!ObjectUtils.isEmpty(bytes)) {
-                FileUtils.writeByteArrayToFile(destinationFile, bytes, true);
+
                 System.out.println(i++);
             }
         }
