@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class Config {
 
     @Bean
-    public MathCalculator MathCalculator() {
+    public MathCalculator mathCalculator() {
         return new MathCalculator();
     }
 
