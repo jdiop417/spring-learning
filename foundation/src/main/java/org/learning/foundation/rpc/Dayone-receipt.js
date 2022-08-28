@@ -5,18 +5,17 @@ if (bodyJson == null || bodyJson.featureBundle == null) {
     $done();
 }
 
-let featureBundle = bodyJson.featureBundle;
-featureBundle.bundleName = "premium";
-featureBundle.featuresFull.forEach(f => {
-    f.enabled = true;
+let bundle = bodyJson.bundle;
+bundle.bundleName = "premium";
+bundle.featuresFull.forEach(f => {
+    if (f.hasOwnProperty("enabled")) {
+        f.enabled = true;
+    }
+
     f.canUpgrade = false;
 })
-featureBundle.features = featureBundle.featuresFull;
+bundle.features = bundle.featuresFull;
 
-
-bodyJson.isAdmin = true;
-bodyJson.isEligibleForTrial = true;
-bodyJson.subscription.premium = true;
 
 console.log(`response.body after modify:${JSON.stringify(bodyJson)}`);
 $done({body: JSON.stringify(bodyJson)});
