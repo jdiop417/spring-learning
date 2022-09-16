@@ -6,13 +6,17 @@ if (obj == null) {
 
 for (let i = 0; i < obj.length; i++) {
     let nymfModel = obj[i];
-    if (nymfModel.instagram_url!=null) {
-        nymfModel.description += "\n" + nymfModel.instagram_url;
-    }
-    if (nymfModel.onlyfans_url!=null) {
-        nymfModel.description += "\n" + nymfModel.onlyfans_url;
-    }
+    fullDescAddUrl(nymfModel, nymfModel.instagram_url);
+    fullDescAddUrl(nymfModel, nymfModel.patreon_url);
+    fullDescAddUrl(nymfModel, nymfModel.onlyfans_url);
+    fullDescAddUrl(nymfModel, nymfModel.facebook_url);
+    fullDescAddUrl(nymfModel, nymfModel.other_url);
 }
 
+function fullDescAddUrl(nymfModel, url) {
+    if (url != null) {
+        nymfModel.full_description += "\n" + url;
+    }
+}
 
 $done({body: JSON.stringify(obj)});
