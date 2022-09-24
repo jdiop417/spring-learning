@@ -52,9 +52,9 @@ function nucleicAcid(data, date) {
     t.hscysj = setHourAndToLocaleDateString(date, hscysj_hour);
 
     let hsjcsj_hour = hscysj_hour + hscysj_hour % 3;
-    if (hsjcsj_hour >= 9 && hsjcsj_hour <= 12) {
+    if (hsjcsj_hour >= 9 && hsjcsj_hour < 12) {
         hsjcsj_hour += 4;
-    } else if (hsjcsj_hour > 12 && hsjcsj_hour < 16) {
+    } else if (hsjcsj_hour >= 12 && hsjcsj_hour < 16) {
         hsjcsj_hour += 6;
     } else if (hsjcsj_hour >= 16) {
         hsjcsj_hour += 8;
@@ -65,7 +65,7 @@ function nucleicAcid(data, date) {
         t.hsjcsj = setHourAndToLocaleDateString(today(), 0);
     }
 
-    const mc = new Map([[0, "成都大哲医学检验实验室"], [1, "成都市第二人民医院"], [2, "四川天府新区人民医院"], [3, "高新达安医学检验所"], [4, "成都新基因格医学检验所"], [5, "成飞医院"], [6, "成都市疾病預防控制中心"], [7, "成都高新华曦医学检验实验室"]]);
+    const mc = new Map([[0, "成都大哲医学检验实验室"], [1, "成都市第二人民医院"], [2, "四川天府新区人民医院"], [3, "高新达安医学检验所"], [4, "成都新基因格医学检验所"], [5, "成飞医院"], [6, "成都市疾病預防控制中心"], [7, "成都高新华曦医学检验实验室"], [8, "成都天府新区帕诺米克医学检验实验室"]]);
     t.hsjcjgmc = mc.get(hscysj_hour % mc.size);
 
     data.unshift(t);
