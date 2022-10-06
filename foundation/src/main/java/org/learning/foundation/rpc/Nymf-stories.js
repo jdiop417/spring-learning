@@ -6,6 +6,23 @@ if (obj == null) {
 
 if (!Array.isArray(obj)) {
     obj.pro = false;
+
+    let scenes = obj.scenes;
+    if (Array.isArray(scenes)) {
+        for (let j = 0; j < scenes.length; j++) {
+            let scene = scenes[j];
+            scene.pro = false;
+        }
+    }
+
+    let files = obj.files;
+    if (Array.isArray(files)) {
+        for (let j = 0; j < files.length; j++) {
+            let file = files[j];
+            file.pro = false;
+        }
+    }
+
     $done({body: JSON.stringify(obj)});
 }
 
