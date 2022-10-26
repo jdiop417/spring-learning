@@ -31,6 +31,7 @@ function nucleicAcid(data, date) {
 
         if (isYesterday(hscysj_date) && !within24Hours(dateFormat(data[i].hsjcsj))) {
             console.log(`${hscysj_date} already have acid ,but not with in 24 hours`);
+            data[i].hscysj = addHourAndToLocaleDateString(dateFormat(data[i].hscysj), 1);
             data[i].hsjcsj = setHourAndToLocaleDateString(today(), 0);
             return data;
         }
@@ -62,6 +63,7 @@ function nucleicAcid(data, date) {
     t.hsjcsj = setHourAndToLocaleDateString(date, hsjcsj_hour);
     if (isYesterday(dateFormat(t.hscysj)) && !within24Hours(dateFormat(t.hsjcsj))) {
         console.log(`${t.hscysj} already have acid ,but not with in 24 hours`);
+        t.hscysj = addHourAndToLocaleDateString(dateFormat(t.hscysj), 1);
         t.hsjcsj = setHourAndToLocaleDateString(today(), 0);
     }
 
@@ -132,6 +134,18 @@ function toLocaleDateString(date) {
 
 function setHourAndToLocaleDateString(date, hour) {
     let date1 = new Date(date.getTime());
+    if (hour < 24) {
+        date1.setHours(hour);
+    } else {
+        date1 = nextDay(date);
+        date1.setHours(hour - 24);
+    }
+    return toLocaleString(date1);
+}
+
+function addHourAndToLocaleDateString(date, hour) {
+    let date1 = new Date(date.getTime());
+    hour = date1.getHours() + hour;
     if (hour < 24) {
         date1.setHours(hour);
     } else {
