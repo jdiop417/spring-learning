@@ -7,6 +7,9 @@ if (obj == null) {
 for (let i = 0; i < obj.length; i++) {
     let compose = obj[i];
     let result = compose.result;
+    if (!result) {
+        continue;
+    }
     if (!Array.isArray(result)) {
         result.pro = false;
         result.censored = false;
@@ -15,6 +18,9 @@ for (let i = 0; i < obj.length; i++) {
 
     for (let j = 0; j < result.length; j++) {
         let nymfPost = result[j];
+        if (!result) {
+            continue;
+        }
         nymfPost.pro = false;
         nymfPost.censored = false;
     }
