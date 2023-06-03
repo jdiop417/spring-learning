@@ -1,8 +1,6 @@
 package org.learning.leetcode;
 
 
-import org.junit.Test;
-
 public class MergeKLists_23 {
 
     public ListNode mergeKLists(ListNode[] lists) {
@@ -54,7 +52,6 @@ public class MergeKLists_23 {
         return l3;
     }
 
-    @Test
     public void test() {
         ListNode l1 = null;
         ListNode l2 = ListNode.parseFromStr("1");
