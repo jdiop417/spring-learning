@@ -26,6 +26,7 @@
         <module>feign/consumer</module>
         <module>feign/provider</module>
         <module>feign/provider-api</module>
+        <module>bean-register</module>
     </modules>
 
     <properties>
