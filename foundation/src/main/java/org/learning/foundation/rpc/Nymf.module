@@ -1,0 +1,17 @@
+#!name=NYMF
+
+#!desc=NYMF解锁会员
+
+[Script]
+
+Nymf-photos=type=http-response,pattern=^https://nymfapp\.com/api/photos\?,requires-body=1,script-path=https://raw.githubusercontent.com/jdiop417/spring-learning/master/foundation/src/main/java/org/learning/foundation/rpc/Nymf-photos.js,debug=true
+Nymf-photo=type=http-response,pattern=^https://nymfapp\.com/api/photos\/,requires-body=1,script-path=https://raw.githubusercontent.com/jdiop417/spring-learning/master/foundation/src/main/java/org/learning/foundation/rpc/Nymf-photo.js,debug=true
+Nymf-layout=type=http-response,pattern=^https://nymfapp\.com/api/layout,requires-body=1,script-path=https://raw.githubusercontent.com/jdiop417/spring-learning/master/foundation/src/main/java/org/learning/foundation/rpc/Nymf-layout.js,debug=true
+Nymf-posts=type=http-response,pattern=^https://nymfapp\.com/api/posts,requires-body=1,script-path=https://raw.githubusercontent.com/jdiop417/spring-learning/master/foundation/src/main/java/org/learning/foundation/rpc/Nymf-posts.js,debug=true
+Nymf-models=type=http-response,pattern=^https://nymfapp\.com/api/models,requires-body=1,script-path=https://raw.githubusercontent.com/jdiop417/spring-learning/master/foundation/src/main/java/org/learning/foundation/rpc/Nymf-models.js,debug=true
+Nymf-stories=type=http-response,pattern=^https://nymfapp\.com/api/stories,requires-body=1,script-path=https://raw.githubusercontent.com/jdiop417/spring-learning/master/foundation/src/main/java/org/learning/foundation/rpc/Nymf-stories.js,debug=true
+Nymf-compose=type=http-response,pattern=^https://nymfapp\.com/api/compose,requires-body=1,script-path=https://raw.githubusercontent.com/jdiop417/spring-learning/master/foundation/src/main/java/org/learning/foundation/rpc/Nymf-compose.js,debug=true
+
+[MITM]
+
+hostname = %APPEND% nymfapp.com
