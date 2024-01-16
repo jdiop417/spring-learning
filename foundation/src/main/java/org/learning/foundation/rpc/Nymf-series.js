@@ -1,5 +1,4 @@
 var body = $response.body;
-console.log(`"obj before modify:${JSON.stringify(obj)}`)
 let obj = JSON.parse(body);
 
 if (obj == null) {
