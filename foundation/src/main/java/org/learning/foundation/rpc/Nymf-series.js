@@ -1,6 +1,6 @@
 let obj = JSON.parse($response.body);
 
-if (obj == null) {
+if (!obj) {
     $done();
 }
 
