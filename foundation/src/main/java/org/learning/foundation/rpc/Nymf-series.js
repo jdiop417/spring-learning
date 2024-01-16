@@ -1,4 +1,6 @@
-let obj = JSON.parse($response.body);
+var body = $response.body;
+console.log(body)
+let obj = JSON.parse(body);
 
 if (obj == null) {
     $done();
