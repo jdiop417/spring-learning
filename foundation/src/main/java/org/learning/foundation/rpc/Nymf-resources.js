@@ -5,13 +5,10 @@ if (!obj) {
 
 for (let i = 0; i < obj.length; i++) {
     let resource = obj[i];
-    if ((!resource) || (!resource.result)) {
+    if (!resource) {
         continue;
     }
-    let result = resource.result;
 
-    for (let j = 0; j < result.length; j++) {
-        result[j].pro = false;
-    }
+    resource.pro = false;
 }
 $done({body: JSON.stringify(obj)});
