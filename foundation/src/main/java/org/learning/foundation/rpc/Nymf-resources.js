@@ -8,8 +8,9 @@ for (let i = 0; i < obj.length; i++) {
     if ((!resource) || (!resource.result)) {
         continue;
     }
+    let result = resource.result;
 
-    for (let j = 0; j < resource.result.length; j++) {
+    for (let j = 0; j < result.length; j++) {
         result[j].pro = false;
     }
 }
