@@ -4,12 +4,8 @@ if (obj == null) {
     $done();
 }
 
-for (let i = 0; i < obj.length; i++) {
-    let nymfPost = obj[i];
-    nymfPost.pro = false;
-    nymfPost.censored = false;
-    nymfPost.web_unlock = true;
-    nymfPost.portrait = true;
+for (let post of obj) {
+    post.pro = false;
 }
 
 
