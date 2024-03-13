@@ -1,5 +1,4 @@
 let obj = JSON.parse($response.body);
-console.log(`"obj before modify:${JSON.stringify(obj)}`)
 if (obj == null) {
     $done();
 }
@@ -26,5 +25,4 @@ for (let i = 0; i < obj.length; i++) {
     }
 }
 
-console.log(`"obj after modify:${JSON.stringify(obj)}`)
 $done({body: JSON.stringify(obj)});
