@@ -3,6 +3,7 @@ let target = decodeURIComponent(uri.substring("https://link.zhihu.com/?target=".
 
 var modifiedStatus = 'HTTP/1.1 302 Found';
 var myHeaders = {"Location": target};
-var myResponse = {status: modifiedStatus, headers: myHeaders, body: null};
-console.log(myResponse);
+
+var myResponse = {status: modifiedStatus, headers: myHeaders};
+console.log(JSON.stringify(myResponse));
 $done(myResponse);
