@@ -6,6 +6,6 @@ modifiedHeaders['Location'] = target;
 
 var modifiedStatus = 'HTTP/1.1 302 Found';
 
-var myResponse = {status: modifiedStatus, headers: modifiedHeaders};
+var myResponse = {status: modifiedStatus, headers: modifiedHeaders, body: null};
 console.log(myResponse);
 $done(myResponse);
