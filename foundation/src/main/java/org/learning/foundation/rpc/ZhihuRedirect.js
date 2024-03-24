@@ -5,7 +5,7 @@ const myStatus = "HTTP/1.1 307 Temporary Redirect";
 const myHeaders = {"Location": target};
 
 const myResponse = {
-    status: "307",
+    status: "HTTP/1.1 307 Temporary Redirect",
     headers: {"Location": target}
 };
 
