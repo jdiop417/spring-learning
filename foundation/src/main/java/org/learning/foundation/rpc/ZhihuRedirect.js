@@ -1,4 +1,5 @@
-let target = decodeURIComponent($request.url.substring("https://link.zhihu.com/?target=".length));
+var uri=$request.url;
+let target = decodeURIComponent(uri.substring("https://link.zhihu.com/?target=".length));
 
 const myStatus = "HTTP/1.1 307 Temporary Redirect";
 const myHeaders = {"Location": target};
