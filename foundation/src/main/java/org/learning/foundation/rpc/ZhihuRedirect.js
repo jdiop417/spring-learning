@@ -10,4 +10,4 @@ const myResponse = {
 };
 console.log(JSON.stringify(myResponse))
 
-$done(JSON.stringify(myResponse));
+$done(myResponse);
