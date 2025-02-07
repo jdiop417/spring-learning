@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: mybatis
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_cache
+    username: root
+    password:
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      learning:
+        springbootcache: debug
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: org.learning.mybatis.entity
+  mapper-locations: classpath:mapper/*.xml

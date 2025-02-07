@@ -27,6 +27,7 @@
         <module>feign/provider</module>
         <module>feign/provider-api</module>
         <module>bean-register</module>
+        <module>mybatis</module>
     </modules>
 
     <properties>
@@ -73,14 +74,8 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.8</version>
+                <version>1.18.26</version>
                 <scope>provided</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>18.0</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -102,11 +97,6 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>5.3.14</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>20.0</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
