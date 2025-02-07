@@ -11,6 +11,6 @@
 
         <javaClientGenerator targetPackage="org.learning.mybatis.mapper" targetProject="src/main/java"/>
 
-        <table tableName="department" domainObjectName="Department"/>
+        <table tableName="employee" domainObjectName="Employee"/>
     </context>
 </generatorConfiguration>
