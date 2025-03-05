@@ -1,9 +1,12 @@
 package org.learning.mybatis.mapper;
 
 import static org.learning.mybatis.mapper.EmployeeDynamicSqlSupport.*;
-import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
+import static org.mybatis.dynamic.sql.SqlBuilder.*;
+import static org.mybatis.dynamic.sql.SqlBuilder.isGreaterThan;
 
 import jakarta.annotation.Generated;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -15,9 +18,12 @@ import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.type.JdbcType;
 import org.learning.mybatis.entity.Employee;
 import org.mybatis.dynamic.sql.BasicColumn;
+import org.mybatis.dynamic.sql.SortSpecification;
+import org.mybatis.dynamic.sql.SqlBuilder;
+import org.mybatis.dynamic.sql.common.OrderByModel;
 import org.mybatis.dynamic.sql.delete.DeleteDSLCompleter;
-import org.mybatis.dynamic.sql.select.CountDSLCompleter;
-import org.mybatis.dynamic.sql.select.SelectDSLCompleter;
+import org.mybatis.dynamic.sql.render.RenderingStrategies;
+import org.mybatis.dynamic.sql.select.*;
 import org.mybatis.dynamic.sql.select.render.SelectStatementProvider;
 import org.mybatis.dynamic.sql.update.UpdateDSL;
 import org.mybatis.dynamic.sql.update.UpdateDSLCompleter;
@@ -28,6 +34,7 @@ import org.mybatis.dynamic.sql.util.mybatis3.CommonDeleteMapper;
 import org.mybatis.dynamic.sql.util.mybatis3.CommonInsertMapper;
 import org.mybatis.dynamic.sql.util.mybatis3.CommonUpdateMapper;
 import org.mybatis.dynamic.sql.util.mybatis3.MyBatis3Utils;
+import org.springframework.beans.support.PagedListHolder;
 
 @Mapper
 public interface EmployeeMapper extends CommonCountMapper, CommonDeleteMapper, CommonInsertMapper<Employee>, CommonUpdateMapper {
@@ -55,6 +62,27 @@ public interface EmployeeMapper extends CommonCountMapper, CommonDeleteMapper, C
         return MyBatis3Utils.countFrom(this::count, employee, completer);
     }
 
+    default long count(BasicColumn column,CountDSLCompleter completer) {
+        return  MyBatis3Utils.count(this::count,column, employee, completer);
+    }
+
+    default List<Employee> page(BasicColumn countColumn,  SelectDSLCompleter completer, long pageNo, long pageSize, SortSpecification... order) {
+//        QueryExpressionDSL.FromGatherer<SelectModel> fromGatherer = SqlBuilder.select(SqlBuilder.count(countColumn));
+//        CountDSL<SelectModel> start = countDistinctColumn(countColumn).from(employee);
+//        completer.apply(start)
+//        long count = count(where.build().render(RenderingStrategies.MYBATIS3));
+//        if (count <= 0) {
+//            return new ArrayList<>();
+//        }
+//
+//        selectMany( SqlBuilder.select(selectList))
+//       ;
+
+        return null;
+    }
+
+
+
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2025-02-07T21:20:43.433+08:00", comments="Source Table: employee")
     default int delete(DeleteDSLCompleter completer) {
         return MyBatis3Utils.deleteFrom(this::delete, employee, completer);
@@ -62,7 +90,7 @@ public interface EmployeeMapper extends CommonCountMapper, CommonDeleteMapper, C
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2025-02-07T21:20:43.433+08:00", comments="Source Table: employee")
     default int deleteByPrimaryKey(Integer id_) {
-        return delete(c -> 
+        return delete(c ->
             c.where(id, isEqualTo(id_))
         );
     }
