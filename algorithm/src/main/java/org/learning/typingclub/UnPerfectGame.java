@@ -52,7 +52,7 @@ public class UnPerfectGame extends Game {
                     return retVal;
                 })
                 .filter(Objects::nonNull)
-                .sorted(comparing(UnPerfectGame::getGap).thenComparing(comparing(UnPerfectGame::getGoal_wpm).reversed()).thenComparing(comparing(UnPerfectGame::getAttempt_count).reversed()))
+                .sorted(comparing(UnPerfectGame::getGap).thenComparing(comparing(UnPerfectGame::getGoal_wpm)).thenComparing(comparing(UnPerfectGame::getAttempt_count).reversed()))
                 .collect(Collectors.toList());
 
         // load
