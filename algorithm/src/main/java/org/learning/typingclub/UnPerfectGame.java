@@ -18,7 +18,7 @@ public class UnPerfectGame extends Game {
     private Integer min_accuracy;
     private Integer min_wpm;
 
-    // gap=goal_wpm*4-wpm
+    // gap=goal_wpm*2-wpm
     private Integer gap;
 
 
